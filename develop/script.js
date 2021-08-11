@@ -10,11 +10,32 @@ var numberCheck;
 var specialCheck;
 
 // Phase 1: Determine the length of password from minimum 8 characters to 128 maximum characters
+// Next few functions are to catch any errors made by the user inputing anything less than 8, more than 128 and/or
+// a word instead of a number.
+function determineLength(){
+
+  if (passwordLength<8){
+      alert("Oops! Something went wrong. Please enter a number between 8 and 128.");
+      determineLength();
+  }
+  else if (passwordLength>128){
+      alert("Oops! Something went wrong. Please enter a number between 8 and 128.");
+      determineLength();
+  }
+  else if (isNaN(passwordLength)){
+    alert("Oops! Something went wrong. Please enter a number between 8 and 128.");
+    determineLength();
+  }
+  else{
+    alert("Please choose your options on what you want your random password to include on the next few prompts.");
+  }
+  return passwordLength;
+}
 var userChoice = window.prompt("Enter length of password between no less than 8 characters and no more than 128, please.");
 
 //If user enters >8, proceed to next question in regards to lower case or uppercase.
 if (!userChoice) {
-  
+
 }
 
 // Write password to the #password input
