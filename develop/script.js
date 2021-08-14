@@ -5,6 +5,7 @@ var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numberChar = "0123456789";
 var specialChar = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 var passwordLength;
+var lowercaseCheck;
 var uppercaseCheck;
 var numberCheck;
 var specialCheck;
@@ -33,24 +34,18 @@ else if ((begin <8) || (begin >128)) {
 
     begin = parseInt(prompt("Hey dude, you need to have it between 8 and 128."))
 }
-else {
+
   var password = ""
 
-  lowercaseChar = confirm("");
-  uppercaseChar = confirm("");
-  numberChar = confirm("");
-  specialChar = confirm("");
-}
-}
+  lowercaseCheck = confirm("Do you want lowercase characters?");
+  uppercaseCheck = confirm("Do you want uppercase characters?");
+  numberCheck = confirm("Do you want numbers in your password?");
+  specialCheck = confirm("And last but not least, do you want special characters?");
 
-
-
-
-
-
-
-
-
+  if (lowercaseCheck) {
+      userChoice += lowercaseChar
+  }
+  }
 
 /* var determineLength = prompt("Yo. Pick a number between 8 and 128. Don't try to be sneaky. I am watching you.");
 
@@ -72,9 +67,11 @@ function determineLength(){
 }
 */
 
-var determineLowerChar = prompt("");
+
 
 function determineLowerChar() {
+
+  var determineLowerChar = prompt("");
   if (confirm("You want lower case or nah?")); {
       console.log("ljljlj");
   }
@@ -102,7 +99,7 @@ else if {
 // Write password to the #password input
 function writePassword() {
   var password = "";
-  var password = generatePassword();
+  var password = designPw();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 
